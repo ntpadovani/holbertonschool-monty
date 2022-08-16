@@ -1,1 +1,1 @@
-# holbertonschool-monty
+This repository will contain all files and folders pertaining to the stacks and queues project.
