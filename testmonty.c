@@ -44,9 +44,8 @@ int main(int argc, char **argv)
     free(text);
     text = NULL;
     freestack(mystack);
-    
-    free(montycmd);
     montycmd = NULL;
+    free(montycmd);
     fclose(fd);
     fd = NULL;
     return (0);

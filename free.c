@@ -15,6 +15,8 @@ void arrayfree(char **string)
 	{
 		free(string[idx]);
 	}
+	free(*string);
+	string = NULL;
 }
 
 /**
