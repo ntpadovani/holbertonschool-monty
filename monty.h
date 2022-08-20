@@ -1,8 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
-
+extern char **montycmd; /*variable global*/
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -33,4 +37,19 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+typedef struct list_s
+{
+	char *str;
+	unsigned int len;
+	struct list_s *next;
+} list_t;
+
+char **separate(char *string, const char *s);
+int count_words(char *string);
+void arrayfree(char **string);
+void freestack(stack_t *mystack);
+int _strlen(char *s);
+void push(stack_t **head, unsigned int line_number);
+void pall(stack_t **head, unsigned int line_number);
+void (*get_op_func(char *s))(stack_t **head, unsigned int line_number);
 #endif
