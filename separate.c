@@ -13,12 +13,13 @@ char **separate(char *string, const char *s)
 {
 	char *tokenized = NULL, **darray = NULL;
 	int size = 0, idx = 0;
+
 	size = count_words(string);
 	darray = malloc(sizeof(char *) * size + 1);
 	if (darray == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	tokenized = strtok(string, s);
 	while (tokenized != NULL)
