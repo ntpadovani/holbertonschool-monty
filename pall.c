@@ -14,7 +14,6 @@ void pall(stack_t **head, __attribute__((unused))unsigned int line_number)
 	while(ptr != NULL)
 	{
 		printf("%d\n", (*ptr).n);
-		printf("................\n");
 		ptr = (*ptr).next;/*para correr de nodo en nodo*/
 	}
 	return;

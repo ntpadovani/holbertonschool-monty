@@ -21,13 +21,18 @@ void (*get_op_func(char *s))(stack_t **head, unsigned int line_number)
 	};
 int idx = 0;
 
-	while (ops[idx].opcode)/*navego por el struct array ops*/
+	while (ops[idx].opcode)/* Traverse struct array ops*/
 	{
 		if (strcmp(s, ops[idx].opcode) == 0)
 		{
-			return (ops[idx].f);/*devuelvo un function pointer (f)*/
+			return (ops[idx].f);/*Return function pointer (f)*/
 		}
 		idx++;
+	}
+	if(ops[idx].f == NULL)
+	{
+		fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_number, s);
+		exit (EXIT_FAILURE);
 	}
 	return (ops[idx].f);
 }

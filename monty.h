@@ -6,7 +6,9 @@
 #include <unistd.h>
 #include <string.h>
 
-extern char **montycmd; /*variable global*/
+extern char **montycmd; /*Global variable to manage dimensional arrays.*/
+extern int line_number; /*Global variable to keep tabs on line count.*/
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -36,7 +38,13 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
+/**
+ * struct list_s - linked list node 
+ * @str:
+ * @len:
+ * @next:
+ * Description: 
+ */
 typedef struct list_s
 {
 	char *str;
