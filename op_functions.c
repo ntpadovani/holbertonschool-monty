@@ -31,7 +31,7 @@ int idx = 0;
 	}
 	if(ops[idx].f == NULL)
 	{
-		fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_number, s);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, s);
 		exit (EXIT_FAILURE);
 	}
 	return (ops[idx].f);
