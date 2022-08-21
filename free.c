@@ -11,7 +11,7 @@ void arrayfree(char **string)
 {
 	int idx;
 
-	for(idx = 0; string[idx] != NULL; idx++)
+	for (idx = 0; string[idx] != NULL; idx++)
 	{
 		free(string[idx]);
 	}
@@ -23,12 +23,11 @@ void arrayfree(char **string)
  * freestack - Used to free a stack
  * @mystack: The stack to be freed.
  *
- *Return: Void 
+ * Return: Void
  */
 void freestack(stack_t *mystack)
 {
-	
-	if(mystack == NULL)
+	if (mystack == NULL)
 	{
 		return;
 	}
