@@ -3,7 +3,7 @@
 /**
  * push - adds a new node at the beginning of a link list
  * @head: input header pointer
- * @n: Input int value
+ * @line_number: function used to count the lines
  * Return: address of the new element, or NULL if it failed
  */
 
