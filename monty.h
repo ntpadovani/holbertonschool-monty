@@ -20,9 +20,9 @@ extern int line_number; /*Global variable to keep tabs on line count.*/
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+int n;
+struct stack_s *prev;
+
 } stack_t;
 
 /**
@@ -35,21 +35,21 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+char *opcode;
+void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /**
- * struct list_s - linked list node 
- * @str:
- * @len:
- * @next:
- * Description: 
+ * struct list_s - linked list node
+ * @str: string length
+ * @len: the length
+ * @next: point to the next node
+ * Description:
  */
 typedef struct list_s
 {
-	char *str;
-	unsigned int len;
-	struct list_s *next;
+char *str;
+unsigned int len;
+struct list_s *next;
 } list_t;
 
 char **separate(char *string, const char *s);
