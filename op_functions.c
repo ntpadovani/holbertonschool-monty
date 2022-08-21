@@ -11,7 +11,8 @@ void (*get_op_func(char *s))(stack_t **head, unsigned int line_number)
 	 instruction_t ops[] =	{
 		{"push", push},
 		{"pall", pall},
-		/*{"pint", pint},
+		/*
+		*{"pint", pint},
 		*{"pop", pop},
 		*{"swap", swap},
 		*{"add", add},
@@ -29,10 +30,10 @@ int idx = 0;
 		}
 		idx++;
 	}
-	if(ops[idx].f == NULL)
+	if (ops[idx].f == NULL)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, s);
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	return (ops[idx].f);
 }
