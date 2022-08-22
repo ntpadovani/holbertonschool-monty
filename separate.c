@@ -15,16 +15,35 @@ char **separate(char *string, const char *s)
 	int size = 0, idx = 0;
 
 	size = count_words(string);
+	printf("%d:", size);
+	if(size == 0)
+	{
+		return (darray);
+	}
 	darray = malloc(sizeof(char *) * size + 1);
 	if (darray == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+
 	tokenized = strtok(string, s);
+	if(strcmp(tokenized, "\0") == 0)
+		{
+			idx++;
+			tokenized = strtok(NULL, s);
+	    }
 	while (tokenized != NULL)
 	{
 		darray[idx] = tokenized;
+	if(strcmp(tokenized, "\0") == 0)
+		{
+			idx++;
+			tokenized = NULL;
+			tokenized = strtok(NULL, s);
+			continue;
+	    }
+		
 		idx++;
 		tokenized = NULL;
 		tokenized = strtok(NULL, s);
