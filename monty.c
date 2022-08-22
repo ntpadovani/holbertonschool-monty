@@ -18,6 +18,7 @@ int main(int argc, char **argv)
     stack_t *mystack = NULL;
     void (*f)(stack_t **, unsigned int) = NULL;
 
+<<<<<<< HEAD
     if (argc != 2) /*If the user doesn't specify a file when executing.*/
     {
         fprintf(stderr, "USAGE: monty file\n");
@@ -57,4 +58,44 @@ int main(int argc, char **argv)
     fclose(fd);
     fd = NULL;
     exit(EXIT_SUCCESS);
+=======
+if (argc != 2) /*If the user doesn't specify a file when executing.*/
+{
+fprintf(stderr, "USAGE: monty file\n");
+exit(EXIT_FAILURE);
+}
+fd = fopen(argv[1], "r"); /*If file can't be open.*/
+if (fd == NULL)
+{
+fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+exit(EXIT_FAILURE);
+}
+while ((txtinput = getline(&text, &size, fd)) > 0)
+{
+line_number++;                    /*To know the line number*/
+montycmd = separate(text, " \n"); /*Tokenzing the monty file*/
+f = get_op_func(montycmd[0]);
+if (f == NULL)
+{
+free(montycmd);
+free(text);
+exit(EXIT_FAILURE);
+}
+f(&mystack, line_number);
+size = 0; /*Reset everything, 0/NULL, free the memory allocated*/
+free(text);
+text = NULL;
+free(montycmd);
+montycmd = NULL;
+}
+/*Reset everything again out of loop, 0/NULL, free the memory allocated*/
+free(text);
+text = NULL;
+freestack(mystack);
+montycmd = NULL;
+free(montycmd);
+fclose(fd);
+fd = NULL;
+exit(EXIT_SUCCESS);
+>>>>>>> 18bdab931f4817e7d0fa3352eb7d4215d3881f11
 }
