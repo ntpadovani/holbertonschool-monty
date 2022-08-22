@@ -21,6 +21,7 @@ int count_words(char *string)
 		{
 			idx++;
 		}
+		/*
 		while (string[idx] == ' ' && string[idx] != '\0')
         {
             idx++;
@@ -30,6 +31,7 @@ int count_words(char *string)
                 return (count);
             }
         }
+		*/
 		while (string[idx] != ' ' && string[idx] != '\0')
 		{
 			if (string[idx + 1] == ' ' || string[idx + 1] == '\0')
