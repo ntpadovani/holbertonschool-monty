@@ -11,6 +11,11 @@ void arrayfree(char **string)
 {
 	int idx;
 
+	if(string == NULL)
+	{
+		return;
+	}
+
 	for (idx = 0; string[idx] != NULL; idx++)
 	{
 		free(string[idx]);

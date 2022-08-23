@@ -1,9 +1,5 @@
 
-push 123
-   push            258
+push 1
+push 2
+push 3
 pall
-
-push 345
-             push             236a
-                            pall
-                            pusha
