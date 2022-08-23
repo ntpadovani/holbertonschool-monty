@@ -15,8 +15,8 @@ char **separate(char *string, const char *s)
 	int size = 0, idx = 0;
 
 	size = count_words(string);
-	printf("%d\n", size);
-	if(size == 0)
+	printf("The tokens size is:%d\n", size);
+	if (size == 0)
 	{
 		return (darray);
 	}
@@ -31,7 +31,6 @@ char **separate(char *string, const char *s)
 	while (tokenized != NULL)
 	{
 		darray[idx] = tokenized;
-		
 		idx++;
 		tokenized = NULL;
 		tokenized = strtok(NULL, s);

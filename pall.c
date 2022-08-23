@@ -16,5 +16,7 @@ void pall(stack_t **head, __attribute__((unused)) unsigned int line_number)
 		printf("%d\n", (*ptr).n);
 		ptr = (*ptr).next; /*para correr de nodo en nodo*/
 	}
-	exit(EXIT_SUCCESS);
-}
+	if (ptr == NULL)
+	{
+		exit(EXIT_SUCCESS);
+}	}

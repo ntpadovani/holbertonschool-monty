@@ -46,7 +46,6 @@ int main(int argc, char **argv)
             free(montycmd);
             free(text);
             exit(EXIT_FAILURE);
-            /*imprimo un error*/
         }
         f(&mystack, line_number);
         size = 0; /*Reset everything, 0/NULL, free the memory allocated*/

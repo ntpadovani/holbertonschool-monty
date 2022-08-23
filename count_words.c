@@ -15,23 +15,30 @@ int count_words(char *string)
 {
 	int count = 0, idx = 0;
 
+	if (string[idx] == '\0')
+	{
+		return (count);
+	}
+
 	while (string[idx] != '\0')
 	{
 		while (string[idx] == ' ')
 		{
 			idx++;
+			while (string[idx] == ' ' && string[idx] != '\0')
+        	{
+            	idx++;
+            	if(string[idx] == '\0')
+            	{
+                	count = 0;
+                	return (count);
+            	}
+        	}
+
 		}
-		/*
-		while (string[idx] == ' ' && string[idx] != '\0')
-        {
-            idx++;
-            if(string[idx] == '\0')
-            {
-                count = 0;
-                return (count);
-            }
-        }
-		*/
+		
+		
+		
 		while (string[idx] != ' ' && string[idx] != '\0')
 		{
 			if (string[idx + 1] == ' ' || string[idx + 1] == '\0')
