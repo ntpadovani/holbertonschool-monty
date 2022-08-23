@@ -10,12 +10,26 @@
 void push(stack_t **head, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *new_node = NULL;
-
+	char *montycontent = NULL;
+	int idx = 0;
+	montycontent = montycmd[1];
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
 		return;
 	}
+	printf("montycmd is:%s\n", montycontent);
+	while (montycontent[idx] != '\0')
+	{
+		if(isalpha(montycontent[idx]) != 0)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			exit (EXIT_FAILURE);
+		}
+		idx++;
+	}
+	
+	
 	new_node->n = atoi(montycmd[1]); /*converti de string a int*/
 	new_node->prev = NULL;
 	if (*head == NULL)

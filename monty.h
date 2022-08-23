@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <ctype.h>
 
 extern char **montycmd; /*Global variable to manage dimensional arrays.*/
 extern int line_number; /*Global variable to keep tabs on line count.*/

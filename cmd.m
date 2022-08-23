@@ -1,3 +1,1 @@
-  push 5
-  push                 20
-             pall
+push 123a
