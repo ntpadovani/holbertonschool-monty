@@ -15,7 +15,7 @@ char **separate(char *string, const char *s)
 	int size = 0, idx = 0;
 
 	size = count_words(string);
-	printf("The tokens size is:%d\n", size);
+	/*printf("The tokens size is:%d\n", size);*/
 	if (size == 0)
 	{
 		return (darray);
