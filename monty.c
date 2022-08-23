@@ -7,15 +7,18 @@
  * Return: EXIT_SUCCES OR EXIT_FAILURE
  */
 
-char **montycmd = NULL; /*Global variable for dimensional array*/
+char **montycmd; /*Global variable for dimensional array*/
 int line_number = 0;    /*Global variable for line count.*/
 int main(int argc, char **argv)
 {
+
     int txtinput = 0;
     size_t size = 0; /**/
     char *text = NULL;
     FILE *fd = NULL; /*file descriptor por fopen()*/
     stack_t *mystack = NULL;
+
+    montycmd = NULL;
     void (*f)(stack_t **, unsigned int) = NULL;
 
     if (argc != 2) /*If the user doesn't specify a file when executing.*/
