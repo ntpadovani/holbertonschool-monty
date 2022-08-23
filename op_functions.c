@@ -8,7 +8,7 @@
 
 void (*get_op_func(char *s))(stack_t **head, unsigned int line_number)
 {
-	 instruction_t ops[] =	{
+	 static instruction_t ops[] =	{
 		{"push", push},
 		{"pall", pall},
 		/*
@@ -24,6 +24,10 @@ int idx = 0;
 
 	while (ops[idx].opcode)/* Traverse struct array ops*/
 	{
+		if(s == NULL)
+		{
+			return NULL;
+		}
 		if (strcmp(s, ops[idx].opcode) == 0)
 		{
 			return (ops[idx].f);/*Return function pointer (f)*/

@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     {
         /*printf("Textinput is:%d\n", txtinput);*/
         line_number++;                    /*To know the line number*/
-        if (strlen(text) == 1)
+        if (strlen(text) == 1) /*if there is a blank line, ignore it*/
         {
             size = 0;
             free(text);
@@ -41,15 +41,23 @@ int main(int argc, char **argv)
             continue;
         }
         montycmd = separate(text, " \n"); /*Tokenzing the monty file*/
+        /*printf("Montycmd is:%s\n", montycmd[0]);*/
         f = get_op_func(montycmd[0]);
         if (f == NULL)
         {
+            if(montycmd[0] == NULL)
+            {
+                arrayfree(montycmd);
+                free(text);
+                montycmd = NULL;
+                text = NULL;
+                continue;
+            }
             fprintf(stderr, "L%d: unknown instruction %s\n", line_number, montycmd[0]);
-            arrayfree(montycmd);
-            free(text);
             freestack(mystack);
             fclose(fd);
             exit(EXIT_FAILURE);
+            
         }
         if (montycmd[1] == NULL && strcmp("pall", montycmd[0]) != 0)
 	    {
