@@ -18,7 +18,7 @@ void push(stack_t **head, __attribute__((unused))unsigned int line_number)
 	{
 		return;
 	}
-	printf("montycmd is:%s\n", montycontent);
+	/*printf("montycmd is:%s\n", montycontent);*/
 	while (montycontent[idx] != '\0')
 	{
 		if(isalpha(montycontent[idx]) != 0)
