@@ -14,8 +14,9 @@ void arrayfree(char **string)
 	for (idx = 0; string[idx] != NULL; idx++)
 	{
 		free(string[idx]);
+		string[idx] = NULL;
 	}
-	free(*string);
+	free(string);
 	string = NULL;
 }
 

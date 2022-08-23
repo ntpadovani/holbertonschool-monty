@@ -31,6 +31,8 @@ int main(int argc, char **argv)
     }
     while ((txtinput = getline(&text, &size, fd)) > -1)
     {
+        /*printf("Textinput is:%d\n", txtinput);*/
+        line_number++;                    /*To know the line number*/
         if (strlen(text) == 1)
         {
             size = 0;
@@ -38,28 +40,39 @@ int main(int argc, char **argv)
             text = NULL;
             continue;
         }
-        line_number++;                    /*To know the line number*/
         montycmd = separate(text, " \n"); /*Tokenzing the monty file*/
         f = get_op_func(montycmd[0]);
         if (f == NULL)
         {
-            free(montycmd);
+            fprintf(stderr, "L%d: unknown instruction %s\n", line_number, montycmd[0]);
+            arrayfree(montycmd);
             free(text);
+            freestack(mystack);
+            fclose(fd);
             exit(EXIT_FAILURE);
         }
+        if (montycmd[1] == NULL && strcmp("pall", montycmd[0]) != 0)
+	    {
+	    	fprintf(stderr, "L%d: usage: push integer\n", line_number);
+            arrayfree(montycmd);
+            free(text);
+            freestack(mystack);
+            fclose(fd);
+			exit (EXIT_FAILURE);
+	    }
         f(&mystack, line_number);
         size = 0; /*Reset everything, 0/NULL, free the memory allocated*/
         free(text);
         text = NULL;
-        free(montycmd);
+        arrayfree(montycmd);
         montycmd = NULL;
     }
     /*Reset everything again out of loop, 0/NULL, free the memory allocated*/
     free(text);
     text = NULL;
     freestack(mystack);
+    arrayfree(montycmd);
     montycmd = NULL;
-    free(montycmd);
     fclose(fd);
     fd = NULL;
     exit(EXIT_SUCCESS);

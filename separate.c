@@ -20,7 +20,7 @@ char **separate(char *string, const char *s)
 	{
 		return (darray);
 	}
-	darray = malloc(sizeof(char *) * size + 1);
+	darray = malloc(sizeof(char *) * (size + 1));
 	if (darray == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -30,10 +30,12 @@ char **separate(char *string, const char *s)
 	tokenized = strtok(string, s);
 	while (tokenized != NULL)
 	{
-		darray[idx] = tokenized;
+		darray[idx] = malloc(sizeof(char) * (strlen(tokenized) + 1));
+		strcpy(darray[idx], tokenized);
 		idx++;
 		tokenized = NULL;
 		tokenized = strtok(NULL, s);
 	}
+	darray[idx] = NULL;
 	return (darray);
 }
