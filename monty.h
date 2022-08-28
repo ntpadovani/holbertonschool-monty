@@ -60,5 +60,10 @@ void freestack(stack_t *mystack);
 int _strlen(char *s);
 void push(stack_t **head, unsigned int line_number);
 void pall(stack_t **head, unsigned int line_number);
+void pint(stack_t **head, unsigned int line_number);
+void pop(stack_t **head, unsigned int line_number);
+void swap(stack_t **head, unsigned int line_number);
+void add(stack_t **head, unsigned int line_number);
+void nop(stack_t **head, unsigned int line_number);
 void (*get_op_func(char *s))(stack_t **head, unsigned int line_number);
 #endif

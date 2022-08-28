@@ -7,18 +7,15 @@
  * Return: EXIT_SUCCES OR EXIT_FAILURE
  */
 
-char **montycmd; /*Global variable for dimensional array*/
+char **montycmd = NULL; /*Global variable for dimensional array*/
 int line_number = 0;    /*Global variable for line count.*/
 int main(int argc, char **argv)
 {
-
     int txtinput = 0;
     size_t size = 0; /**/
     char *text = NULL;
-    FILE *fd = NULL; /*file descriptor por fopen()*/
+    FILE *fd = NULL; /*Fooling getline(). Making file descriptor from fopen() file.*/
     stack_t *mystack = NULL;
-
-    montycmd = NULL;
     void (*f)(stack_t **, unsigned int) = NULL;
 
     if (argc != 2) /*If the user doesn't specify a file when executing.*/
@@ -34,9 +31,8 @@ int main(int argc, char **argv)
     }
     while ((txtinput = getline(&text, &size, fd)) > -1)
     {
-        /*printf("Textinput is:%d\n", txtinput);*/
-        line_number++;                    /*To know the line number*/
-        if (strlen(text) == 1) /*if there is a blank line, ignore it*/
+        line_number++; /*To know the line number of the file*/
+       if (count_words(text) == 0) /*if there is a blank line, ignore it, even if it has spaces*/
         {
             size = 0;
             free(text);
@@ -44,7 +40,7 @@ int main(int argc, char **argv)
             continue;
         }
         montycmd = separate(text, " \n"); /*Tokenzing the monty file*/
-        /*printf("Montycmd is:%s\n", montycmd[0]);*/
+        /*printf("Montycmd[0] is:%s\n", montycmd[0]);*/ /*for debuging*/
         f = get_op_func(montycmd[0]);
         if (f == NULL)
         {
@@ -62,7 +58,9 @@ int main(int argc, char **argv)
             exit(EXIT_FAILURE);
             
         }
-        if (montycmd[1] == NULL && strcmp("pall", montycmd[0]) != 0)
+        /*printf("Montycmd[1] is:%s\n", montycmd[1]);*/ /*For debugging*/
+
+        if (montycmd[1] == NULL && strcmp("push", montycmd[0]) == 0)
 	    {
 	    	fprintf(stderr, "L%d: usage: push integer\n", line_number);
             arrayfree(montycmd);

@@ -6,9 +6,7 @@
  *
  *@string: The string containing the words to count.
  *
- *
  *Return: The word count inside the string.
- *
  */
 
 int count_words(char *string)
