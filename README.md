@@ -56,8 +56,9 @@
 </ul>
 <h2>Authors</h2>
 <ul>
-<li>Norman Torres (ntpadovani)</li>
+<li>Norman T. Padovani (ntpadovani)</li>
     Full-Stack Software Student at Holberton School of Code Puerto Rico trying to make a difference in the technology world.
+<li>E-mail: <a href="normant_padovani@hotmail.com">normant_padovani@hotmail.com</a></li>
 <li><a href="https://www.linkedin.com/in/norman-t-p-88979553/" target="_blank">
 <img src=https://img.shields.io/badge/linkedin-%231E77B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white alt=linkedin style="margin-bottom: 5px;" />
 </a></li>
