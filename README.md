@@ -32,9 +32,35 @@
 </ul>
 <h3>With this proyect we will be working on the Monty languge, working with functions such as pop, pall, pint, push, etc. In general workign with stacks and how they work.</h3>
 <br>
+<h2>Example</h2>
+
+    $ cat bytecodes/12.m
+    push 1
+    push 2
+    push 3
+    pall
+    add
+    pall
+    $ ./monty bytecodes/12.m
+    3
+    2
+    1
+    5
+    1
+<br>
+<h2>Challenges</h2>
+<ul>
+<li>Develop an algorithm to deal with spaces inside the files</li>
+<li>Be able to execute commands without ending the program</li>
+<li>Deal with "malloc" and "free" to manage memory</li>    
+</ul>
 <h2>Authors</h2>
 <ul>
 <li>Norman Torres (ntpadovani)</li>
+    Full-Stack Software Student at Holberton School of Code Puerto Rico trying to make a difference in the technology world.
+<li><a href="https://www.linkedin.com/in/norman-t-p-88979553/" target="_blank">
+<img src=https://img.shields.io/badge/linkedin-%231E77B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white alt=linkedin style="margin-bottom: 5px;" />
+</a></li>
 <li>Ivanzka Rodriguez (Ivanzkaa)</li>
 </ul>
 </body>
